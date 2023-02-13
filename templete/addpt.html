@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block 'main' %}
+<h2 class="mt-5">ADD PATIENTS</h2>
+<div class="col md-8 mt-3 m-auto">
+    
+    <form method="POST" action="/add">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="pid" class="form-label">HHC CODE:</label>
+            <input type="text" class="form-control" name="p" id="pid" placeholder="Enter Patients ID" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="tid" class="form-label">Name:</label>
+            <input type="text" class="form-control" name="t" id="tid" placeholder="Enter Patients Name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="sid" class="form-label">Mobile No:</label>
+            <input type="tel" class="form-control" name="ps" id="tid" placeholder="Enter Mobile.no" required>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" name="em" id="emailid" placeholder="Enter email" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="lid" class="form-label">Location:</label>
+            <input type="text" class="form-control" name="l" id="lid" placeholder="Enter Location" required>
+        </div>
+ 
+       
+
+        <div class="mb-3">
+            <input type="submit" class="form-control btn btn-primary" name="send" value="ADD"/>
+        </div>
+
+    </form>
+</div>
+
+
+{% endblock 'main' %}

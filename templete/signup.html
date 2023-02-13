@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block 'main' %}
+<h1 class="mt-3 bg-danger text-white text-center">
+    Register Form
+</h1>
+
+<div  class="col-md-6 mt-3">
+    <form method="POST" action="register" novalidate>
+        {% csrf_token %}
+            <table>
+                {% for x in form %}
+                    <tr>
+                        <td>{{x.label_tag}}</td>
+                        <td>{{x}}</td>
+                        {% if x.errors %}
+                            <td>{{x.errors}}</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            <tr>
+                <td><input type="submit" name="send" class="btn btn-primary" value="Register"></td>
+            </tr>
+        </table>
+    </form>
+    {% if messages %}
+
+          {% for m in messages %}
+               
+                <span class="alert alert-success" >{{m}}</span>
+
+          {% endfor %}
+
+    {% endif %}
+
+</div>
+
+{% endblock 'main' %}

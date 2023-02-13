@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+        
+        <div class="col-md-3 " style="background-color: magenta; height: 500px;">
+            <center>
+                <a href="/" class="btn btn-primary btn-lg mt-5" >
+                    <span class="glyphicon glyphicon-user"></span> Patients
+                  </a>
+            </center>
+            
+    </div>
+        
+        
+
+        <div class="col-md-9 mt-5">
+            <table class="table">
+                
+
+                {% for d in data %}
+
+                <tr>
+                    <td><div style="border: 2px solid skyblue; border-radius:30px; height:60px; width:60px; background-color:skyblue;">
+                        <a href="#"><i class="glyphicon glyphicon-user" style="font-size: 36px;color: blue; margin-top:12px;margin-left: 10px;"></i></a></div></td>
+                    <td>{{d.hhc_id}}</td>
+                    <td>{{d.patients_name}}</td>
+                    <td>{{d.mobile_no}}</td>
+                    <td><a href="/edit/{{d.id}}" class="btn btn-success btn-lg">
+                        <span class="glyphicon glyphicon-edit"></span>
+                      </a></td>
+                    <td><a href="/delete/{{d.id}}" class="btn btn-danger btn-lg">
+                        <span class="glyphicon glyphicon-trash"></span>
+                      </a></td>
+                    <tr>
+                    <td>{{d.email}}</td>
+                    <td>{{d.location}}</td>
+                    <td><div style="height:25px; width: 70px; background-color: green; color: white;" ><center>Active</center></div></td>
+                    
+                    </tr>
+                    
+                </tr>
+
+
+                {% endfor %}
+
+            </table>
+            
+        </div>
+        
+
+    
+
+{% endblock 'main' %}

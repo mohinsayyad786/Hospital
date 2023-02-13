@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block 'main' %}
+<h2 class="mt-5">Update PATIENTS</h2>
+<div class="col md-8 mt-3 m-auto">
+    {% for d in data %}    
+        <form method="POST" action="/edit/{{d.id}}">
+        {% csrf_token %}
+    
+        <div class="mb-3">
+            <label for="pid" class="form-label">HHC CODE:</label>
+            <input type="text" class="form-control" name="p" id="pid" value="{{d.hhc_id}}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="tid" class="form-label">Name:</label>
+            <input type="text" class="form-control" name="t" id="tid" value="{{d.patients_name}}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="sid" class="form-label">Mobile No:</label>
+            <input type="tel" class="form-control" name="ps" id="tid" value="{{d.mobile_no}}" required>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" name="em" id="emailid" value="{{d.email}}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="lid" class="form-label">Location:</label>
+            <input type="text" class="form-control" name="l" id="lid" value="{{d.location}}" required>
+        </div>
+ 
+       
+
+        <div class="mb-3">
+            <input type="submit" class="form-control btn btn-primary" name="send" value="UPDATE"/>
+        </div>
+    
+
+        </form>
+    {% endfor %}
+</div>
+
+
+{% endblock 'main' %}
